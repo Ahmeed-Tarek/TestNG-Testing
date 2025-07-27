@@ -18,7 +18,7 @@ public class TC01_LoginPage {
     private WebDriver driver;
     String fUserName= new Faker().name().username();
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setupDriver() throws IOException {
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
@@ -56,7 +56,7 @@ public class TC01_LoginPage {
         driver.switchTo().alert().accept();
         Assert.assertNotEquals(driver.getCurrentUrl(),DataUtil.getPropertyValue("Environment","HOME_URL"));
     }
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void quit(){
         driver.quit();
     }
