@@ -11,7 +11,7 @@ import java.time.Duration;
 public class TC02_HomePage {
     private WebDriver driver;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setupDriver(){
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
@@ -27,7 +27,7 @@ public class TC02_HomePage {
                 .clickInLogout();
         Assert.assertNotEquals(driver.getCurrentUrl(),"https://aa-practice-test-automation.vercel.app/Pages/main.html");
     }
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void quit(){
         driver.quit();
     }
